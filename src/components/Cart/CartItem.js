@@ -1,7 +1,11 @@
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
-  const price = `Rp. ${props.price}`;
+  const price = (new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(props.price));
 
   return (
     <li className={classes['cart-item']}>

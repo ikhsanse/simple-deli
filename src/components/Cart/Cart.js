@@ -8,7 +8,13 @@ import CartItem from "./CartItem";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `Rp. ${cartCtx.totalAmount}`;
+  const totalAmount = (new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(cartCtx.totalAmount))
+
+
   const hasItem = cartCtx.items.length > 0;
 
   const addHandler = (item) => {

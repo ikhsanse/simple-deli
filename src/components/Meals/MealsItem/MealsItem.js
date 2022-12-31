@@ -5,7 +5,11 @@ import MealsItemForm from "./MealsItemForm";
 import CartContext from "../../store/cart-context";
 
 const MealsItem = (props) => {
-  const price = `Rp. ${props.price}`;
+  const price = (new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(props.price))
 
   const cartCtx = useContext(CartContext);
 
@@ -23,6 +27,7 @@ const MealsItem = (props) => {
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.desc}</div>
+        {/* <div className={classes.price}>{`Rp. ${props.str_price}`}</div> */}
         <div className={classes.price}>{price}</div>
       </div>
       <div>
