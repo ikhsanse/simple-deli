@@ -6,6 +6,7 @@ import Meals from "./components/Meals/Meals";
 import CartProvider from "./components/store/CartProvider";
 
 function App() {
+  document.title = "Simple Deli";
   const [cartIsShow, setCartIsShow] = useState(false);
 
   const cartShowHandler = () => {
